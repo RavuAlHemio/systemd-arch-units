@@ -1,0 +1,12 @@
+[Unit]
+Description=GNOME Display Manager
+Requires=dev-tty7.device
+After=dev-tty7.device systemd-user-sessions.service
+
+[Service]
+ExecStart=/usr/sbin/gdm
+StandardOutput=syslog
+PIDFile=/var/run/gdm.pid
+
+[Install]
+WantedBy=graphical.target
