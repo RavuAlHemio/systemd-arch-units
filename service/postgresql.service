@@ -1,0 +1,15 @@
+[Unit]
+Description=PostgreSQL server
+After=syslog.target
+
+[Service]
+Type=forking
+User=postgres
+ExecStart=/usr/bin/pg_ctl -D /var/lib/postgres/data -l /var/log/postgresql.log -W start
+ExecStop=/usr/bin/pg_ctl -D /var/lib/postgres/data -l /var/log/postgresql.log -w stop
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

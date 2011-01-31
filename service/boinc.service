@@ -1,0 +1,15 @@
+[Unit]
+Description=BOINC Client
+After=syslog.target
+
+[Service]
+Type=forking
+User=boinc
+Nice=19
+ExecStart=/usr/bin/boinc_client --daemon --dir /var/lib/boinc --redirectio --allow_remote_gui_rpc
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

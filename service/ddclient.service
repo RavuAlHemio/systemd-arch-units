@@ -1,0 +1,13 @@
+[Unit]
+Description=Dynamic DNS Client
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ddclient -daemon 300
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

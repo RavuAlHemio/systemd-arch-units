@@ -1,0 +1,12 @@
+[Unit]
+Description=Shorewall IPv6 firewall
+After=syslog.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/shorewall6 -f start
+ExecStop=/sbin/shorewall6 stop
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

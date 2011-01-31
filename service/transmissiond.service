@@ -1,0 +1,14 @@
+[Unit]
+Description=Transmission BitTorrent daemon
+After=syslog.target
+
+[Service]
+Type=forking
+User=transmission
+ExecStart=/usr/bin/transmission-daemon -g /etc/transmissiond
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=stunnel SSL tunnel
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/stunnel
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

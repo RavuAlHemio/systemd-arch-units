@@ -1,0 +1,13 @@
+[Unit]
+Description=Light HTTP Daemon
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

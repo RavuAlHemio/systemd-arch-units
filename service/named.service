@@ -1,0 +1,13 @@
+[Unit]
+Description=Berkeley Internet Name Daemon
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/named -u named
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

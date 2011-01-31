@@ -1,0 +1,15 @@
+[Unit]
+Description=Postfix Mail Server
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/postfix start
+ExecStop=/usr/sbin/postfix stop
+ExecReload=/usr/sbin/postfix reload
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
