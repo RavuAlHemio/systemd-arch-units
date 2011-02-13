@@ -1,0 +1,13 @@
+[Unit]
+Description=Bluez Bluetooth Daemon
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/bluetoothd
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=bluetooth.target

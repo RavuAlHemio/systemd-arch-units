@@ -1,0 +1,13 @@
+[Unit]
+Description=Bluez HID Daemon
+After=syslog.target bluez-bluetoothd.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/hidd --server
+KillMode=process
+Restart=always
+StandardOutput=syslog
+
+[Install]
+WantedBy=bluetooth.target
